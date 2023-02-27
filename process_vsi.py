@@ -94,4 +94,4 @@ def main(skip_dict_path: str, data_dir: str = 'data', save_dir: str = 'processed
 
 
 if __name__ == '__main__':
-    main('skip_dict.pkl')
+    main('skip_dict.pkl', save_dir=)
