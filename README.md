@@ -6,4 +6,4 @@ also checkpoints in case the program crashes at any point, in order to be able t
 
 Code is documented and written with complete accordance to PEP-8 for easy readability, and made easy to modify.
 
-**process_vsi.py** is the main file to be run. Edit the parameters there.
+**process_vsi.py** is the main file. Edit the parameters there.
