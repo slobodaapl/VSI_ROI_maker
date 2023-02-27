@@ -1,8 +1,3 @@
-# Given a folder of files and folders of the format
-# folder: _<number>_<he|p63>_
-# file: <number>_<he|p63>.vsi
-# this script will validate that the files and folders are in the correct format and that for each folder there is a corresponding file
-
 import os
 import re
 

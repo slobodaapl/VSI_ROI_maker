@@ -1,5 +1,3 @@
-# Given a folder of files and folders, make all file and folder names lowercase non-recursively
-
 import os
 import sys
 
