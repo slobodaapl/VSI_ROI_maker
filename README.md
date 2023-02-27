@@ -1,4 +1,4 @@
-# VSI tiling utility
+# VSI tiling utility - **Python 3.8**
 
 Cuts up a .vsi bioformats file into 256x256 images (resized from 1024x1024 that it extracts).
 Includes detection for empty tiles or tiles with insufficient semantic information, and
