@@ -1,6 +1,6 @@
 import os
 import pickle
-from cv2 import imwrite
+from cv2 import imwrite, cvtColor, COLOR_BGR2RGB
 import time
 
 from vsiprocessor.vsi_file import VSIFile
@@ -65,9 +65,9 @@ def main(skip_dict_path: str, data_dir: str = 'data', save_dir: str = 'processed
                     for i in range(retries):
                         try:
                             if img_type == 'he':
-                                imwrite(os.path.join(he_dir, f'{file_idx}.png'), roi)
+                                imwrite(os.path.join(he_dir, f'{file_idx}.png'), cvtColor(roi, COLOR_BGR2RGB))
                             else:
-                                imwrite(os.path.join(p63_dir, f'{file_idx}.png'), roi)
+                                imwrite(os.path.join(p63_dir, f'{file_idx}.png'), cvtColor(roi, COLOR_BGR2RGB))
                         except Exception as e:
                             if i < retries - 1:
                                 print(f'Error saving image {file_idx}: {e}')
