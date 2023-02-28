@@ -20,7 +20,7 @@ def main(skip_dict_path: str, data_dir: str = 'data', save_dir: str = 'processed
         skip_dict = load_dict(skip_dict_path)
     else:
         # create a new dictionary
-        skip_dict = {}
+        skip_dict = {'he': 0, 'p63': 0}
 
     # check if save_dir folder exists, and if not, make it
     if not os.path.isdir(save_dir):
@@ -50,12 +50,16 @@ def main(skip_dict_path: str, data_dir: str = 'data', save_dir: str = 'processed
             raise ValueError(f'File {file} is not of type "he" or "p63"')
 
         if file not in skip_dict:
-            skip_dict[file] = {'done': False, 'idx': 0, 'file_idx': 0, 'skip': []}
+            skip_dict[file] = {'done': False, 'idx': 0, 'skip': []}
         elif skip_dict[file]['done']:
+            print(f"\nSkipping file: {file} -- it is already processed\n")
             continue
 
         with VSIFile(os.path.abspath(os.path.join(data_dir, file)), skip_dict=skip_dict[file]) as vsi:
-            file_idx = skip_dict[file]['file_idx']
+            print(f"Processing file: {file} -- {img_type} image")
+            print(f"Starting at index: {skip_dict[file]['idx']}")
+            print(f"Starting file index: {skip_dict[img_type]}\n")
+            file_idx = skip_dict[img_type]
             for roi in vsi:
                 if vsi_has_sufficient_information(roi):
                     for i in range(retries):
@@ -74,7 +78,7 @@ def main(skip_dict_path: str, data_dir: str = 'data', save_dir: str = 'processed
                         break
 
                     file_idx += 1
-                    skip_dict[file]['file_idx'] = file_idx
+                    skip_dict[img_type] = file_idx
 
                 else:
                     skip_dict[file]['skip'].append(vsi.idx - 1)
