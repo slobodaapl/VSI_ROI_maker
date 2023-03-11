@@ -3,8 +3,8 @@ import pickle
 from cv2 import imwrite, cvtColor, COLOR_BGR2RGB
 import time
 
-from vsiprocessor.vsi_file import VSIFile
-from vsiprocessor.vsi_entropy import vsi_has_sufficient_information
+from src.vsiprocessor.vsi_file import VSIFile
+from src.vsiprocessor.vsi_entropy import vsi_has_sufficient_information
 
 
 def load_dict(path: str):

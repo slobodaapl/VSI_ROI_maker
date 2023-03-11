@@ -46,4 +46,4 @@ def check_all(directory: str):
 
 
 if __name__ == "__main__":
-    check_all('data')
+    check_all('\\\\nas.vgg.lab/nfs-data/datasets/medical/histology/IKEM/BreastCancer/BIKEM 2021')
